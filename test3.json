@@ -1,184 +1,688 @@
 {
   "Hat": {
-    "commie hat": 64.67,
-    "bayc flipped brim": 77.5,
-    "fisherman's hat": 66.3158,
-    "girl's hair pink": 66.66,
-    "fez": 63.94,
-    "spinner hat": 73.69,
-    "short mohawk": 66.3158,
-    "girl's hair short": 45,
-    "safari": 67.69,
-    "bayc hat black": 69.99,
-    "s&m hat": 63,
-    "cowboy hat": 67.8842,
-    "bowler": 66.5,
-    "police motorcycle helmet": 90,
-    "sea captain's hat": 75,
-    "sushi chef headband": 72,
-    "seaman's hat": 61.99999,
-    "stuntman helmet": 95,
-    "army hat": 69.9,
-    "halo": 3e-7,
-    "party hat 2": 84.2,
-    "horns": 64.2069,
-    "party hat 1": 77,
-    "beanie": 65.55,
-    "bunny ears": 70,
-    "trippy captain's hat": 125,
-    "bandana blue": 70,
-    "irish boho": 64,
-    "baby's bonnet": 72,
-    "ww2 pilot helm": 69.4737,
-    "vietnam era helmet": 85,
-    "prussian helmet": 77,
-    "bayc hat red": 85,
-    "laurel wreath": 99.69,
-    "faux hawk": 74,
-    "king's crown": 84
+    "commie hat": {
+      "floor_price": 0,
+      "count": 304
+    },
+    "bayc flipped brim": {
+      "floor_price": 0,
+      "count": 231
+    },
+    "fisherman's hat": {
+      "floor_price": 0,
+      "count": 345
+    },
+    "girl's hair pink": {
+      "floor_price": 0,
+      "count": 105
+    },
+    "fez": {
+      "floor_price": 0,
+      "count": 377
+    },
+    "spinner hat": {
+      "floor_price": 0,
+      "count": 181
+    },
+    "short mohawk": {
+      "floor_price": 0,
+      "count": 318
+    },
+    "girl's hair short": {
+      "floor_price": 0,
+      "count": 150
+    },
+    "safari": {
+      "floor_price": 0,
+      "count": 182
+    },
+    "bayc hat black": {
+      "floor_price": 0,
+      "count": 228
+    },
+    "s&m hat": {
+      "floor_price": 0,
+      "count": 235
+    },
+    "cowboy hat": {
+      "floor_price": 0,
+      "count": 354
+    },
+    "bowler": {
+      "floor_price": 0,
+      "count": 262
+    },
+    "police motorcycle helmet": {
+      "floor_price": 0,
+      "count": 130
+    },
+    "sea captain's hat": {
+      "floor_price": 0,
+      "count": 304
+    },
+    "sushi chef headband": {
+      "floor_price": 0,
+      "count": 187
+    },
+    "seaman's hat": {
+      "floor_price": 0,
+      "count": 420
+    },
+    "stuntman helmet": {
+      "floor_price": 0,
+      "count": 157
+    },
+    "army hat": {
+      "floor_price": 0,
+      "count": 294
+    },
+    "halo": {
+      "floor_price": 0,
+      "count": 324
+    },
+    "party hat 2": {
+      "floor_price": 0,
+      "count": 107
+    },
+    "horns": {
+      "floor_price": 0,
+      "count": 252
+    },
+    "party hat 1": {
+      "floor_price": 0,
+      "count": 120
+    },
+    "beanie": {
+      "floor_price": 0,
+      "count": 578
+    },
+    "bunny ears": {
+      "floor_price": 0,
+      "count": 195
+    },
+    "trippy captain's hat": {
+      "floor_price": 0,
+      "count": 65
+    },
+    "bandana blue": {
+      "floor_price": 0,
+      "count": 89
+    },
+    "irish boho": {
+      "floor_price": 0,
+      "count": 225
+    },
+    "baby's bonnet": {
+      "floor_price": 0,
+      "count": 158
+    },
+    "ww2 pilot helm": {
+      "floor_price": 0,
+      "count": 110
+    },
+    "vietnam era helmet": {
+      "floor_price": 0,
+      "count": 223
+    },
+    "prussian helmet": {
+      "floor_price": 0,
+      "count": 130
+    },
+    "bayc hat red": {
+      "floor_price": 0,
+      "count": 119
+    },
+    "laurel wreath": {
+      "floor_price": 0,
+      "count": 72
+    },
+    "faux hawk": {
+      "floor_price": 0,
+      "count": 136
+    },
+    "king's crown": {
+      "floor_price": 0,
+      "count": 77
+    }
   },
   "Eyes": {
-    "crazy": 75,
-    "bloodshot": 64.2069,
-    "sleepy": 67.6767,
-    "sad": 45,
-    "zombie": 72,
-    "bored": 61.99999,
-    "cyborg": 83,
-    "x eyes": 66.7,
-    "angry": 72.88,
-    "wide eyed": 63.94,
-    "scumbag": 73.69,
-    "coins": 64.988,
-    "3d": 5.5e-7,
-    "blue beams": 196.69,
-    "closed": 67.69,
-    "hypnotized": 63.94,
-    "sunglasses": 69.42,
-    "eyepatch": 64.67,
-    "heart": 72,
-    "blindfold": 76,
-    "laser eyes": 125,
-    "holographic": 89.9895,
-    "robot": 3e-7
+    "crazy": {
+      "floor_price": 0,
+      "count": 407
+    },
+    "bloodshot": {
+      "floor_price": 0,
+      "count": 846
+    },
+    "sleepy": {
+      "floor_price": 0,
+      "count": 751
+    },
+    "sad": {
+      "floor_price": 0,
+      "count": 551
+    },
+    "zombie": {
+      "floor_price": 0,
+      "count": 308
+    },
+    "bored": {
+      "floor_price": 0,
+      "count": 1714
+    },
+    "cyborg": {
+      "floor_price": 0,
+      "count": 108
+    },
+    "x eyes": {
+      "floor_price": 0,
+      "count": 243
+    },
+    "angry": {
+      "floor_price": 0,
+      "count": 432
+    },
+    "wide eyed": {
+      "floor_price": 0,
+      "count": 549
+    },
+    "scumbag": {
+      "floor_price": 0,
+      "count": 233
+    },
+    "coins": {
+      "floor_price": 0,
+      "count": 479
+    },
+    "3d": {
+      "floor_price": 0,
+      "count": 487
+    },
+    "blue beams": {
+      "floor_price": 0,
+      "count": 49
+    },
+    "closed": {
+      "floor_price": 0,
+      "count": 710
+    },
+    "hypnotized": {
+      "floor_price": 0,
+      "count": 220
+    },
+    "sunglasses": {
+      "floor_price": 0,
+      "count": 352
+    },
+    "eyepatch": {
+      "floor_price": 0,
+      "count": 333
+    },
+    "heart": {
+      "floor_price": 0,
+      "count": 394
+    },
+    "blindfold": {
+      "floor_price": 0,
+      "count": 264
+    },
+    "laser eyes": {
+      "floor_price": 0,
+      "count": 69
+    },
+    "holographic": {
+      "floor_price": 0,
+      "count": 151
+    },
+    "robot": {
+      "floor_price": 0,
+      "count": 350
+    }
   },
   "Background": {
-    "army green": 61.99999,
-    "orange": 45,
-    "gray": 63,
-    "new punk blue": 64.67,
-    "aquamarine": 5.5e-7,
-    "purple": 64.2069,
-    "blue": 3e-7,
-    "yellow": 63.94
+    "army green": {
+      "floor_price": 0,
+      "count": 1243
+    },
+    "orange": {
+      "floor_price": 0,
+      "count": 1273
+    },
+    "gray": {
+      "floor_price": 0,
+      "count": 1170
+    },
+    "new punk blue": {
+      "floor_price": 0,
+      "count": 1232
+    },
+    "aquamarine": {
+      "floor_price": 0,
+      "count": 1266
+    },
+    "purple": {
+      "floor_price": 0,
+      "count": 1291
+    },
+    "blue": {
+      "floor_price": 0,
+      "count": 1242
+    },
+    "yellow": {
+      "floor_price": 0,
+      "count": 1283
+    }
   },
   "Fur": {
-    "blue": 68,
-    "black": 64.67,
-    "white": 61.99999,
-    "gray": 64,
-    "dark brown": 5.5e-7,
-    "cheetah": 85,
-    "robot": 79.99,
-    "pink": 66,
-    "solid gold": 77.91,
-    "tan": 70,
-    "dmt": 72,
-    "noise": 89,
-    "brown": 3e-7,
-    "zombie": 63.94,
-    "golden brown": 69.4737,
-    "cream": 45,
-    "red": 66.3158,
-    "death bot": 76,
-    "trippy": 63.94
+    "blue": {
+      "floor_price": 0,
+      "count": 490
+    },
+    "black": {
+      "floor_price": 0,
+      "count": 1229
+    },
+    "white": {
+      "floor_price": 0,
+      "count": 397
+    },
+    "gray": {
+      "floor_price": 0,
+      "count": 496
+    },
+    "dark brown": {
+      "floor_price": 0,
+      "count": 1352
+    },
+    "cheetah": {
+      "floor_price": 0,
+      "count": 406
+    },
+    "robot": {
+      "floor_price": 0,
+      "count": 265
+    },
+    "pink": {
+      "floor_price": 0,
+      "count": 511
+    },
+    "solid gold": {
+      "floor_price": 0,
+      "count": 46
+    },
+    "tan": {
+      "floor_price": 0,
+      "count": 626
+    },
+    "dmt": {
+      "floor_price": 0,
+      "count": 215
+    },
+    "noise": {
+      "floor_price": 0,
+      "count": 155
+    },
+    "brown": {
+      "floor_price": 0,
+      "count": 1370
+    },
+    "zombie": {
+      "floor_price": 0,
+      "count": 302
+    },
+    "golden brown": {
+      "floor_price": 0,
+      "count": 778
+    },
+    "cream": {
+      "floor_price": 0,
+      "count": 636
+    },
+    "red": {
+      "floor_price": 0,
+      "count": 474
+    },
+    "death bot": {
+      "floor_price": 0,
+      "count": 175
+    },
+    "trippy": {
+      "floor_price": 0,
+      "count": 77
+    }
   },
   "Clothes": {
-    "puffy vest": 5.5e-7,
-    "work vest": 72,
-    "prom dress": 125,
-    "service": 73,
-    "black t": 66.3158,
-    "leather jacket": 70,
-    "biker vest": 64,
-    "bone necklace": 64.2069,
-    "vietnam jacket": 66.66,
-    "striped tee": 81,
-    "black holes t": 74,
-    "stunt jacket": 63.94,
-    "bone tee": 67.8842,
-    "lumberjack shirt": 72,
-    "rainbow suspenders": 86.3158,
-    "bayc t black": 70.6999,
-    "guayabera": 65.55,
-    "navy striped tee": 70,
-    "sailor shirt": 45,
-    "prison jumpsuit": 69.42,
-    "cowboy shirt": 96.69,
-    "smoking jacket": 70,
-    "hip hop": 69.9,
-    "bayc t red": 69.69,
-    "bandolier": 63.94,
-    "sleeveless t": 69.99,
-    "tweed suit": 71,
-    "sleeveless logo t": 85,
-    "caveman pelt": 90,
-    "wool turtleneck": 70,
-    "blue dress": 99.88,
-    "tie dye": 75,
-    "kings robe": 3e-7,
-    "tuxedo tee": 66.3158,
-    "leather punk jacket": 71,
-    "toga": 66.3158,
-    "lab coat": 84.2,
-    "tanktop": 66,
-    "pimp coat": 75.7895,
-    "hawaiian": 68,
-    "space suit": 76,
-    "admirals coat": 69,
-    "black suit": 99
+    "puffy vest": {
+      "floor_price": 0,
+      "count": 227
+    },
+    "work vest": {
+      "floor_price": 0,
+      "count": 188
+    },
+    "prom dress": {
+      "floor_price": 0,
+      "count": 103
+    },
+    "service": {
+      "floor_price": 0,
+      "count": 142
+    },
+    "black t": {
+      "floor_price": 0,
+      "count": 334
+    },
+    "leather jacket": {
+      "floor_price": 0,
+      "count": 206
+    },
+    "biker vest": {
+      "floor_price": 0,
+      "count": 253
+    },
+    "bone necklace": {
+      "floor_price": 0,
+      "count": 203
+    },
+    "vietnam jacket": {
+      "floor_price": 0,
+      "count": 224
+    },
+    "striped tee": {
+      "floor_price": 0,
+      "count": 412
+    },
+    "black holes t": {
+      "floor_price": 0,
+      "count": 205
+    },
+    "stunt jacket": {
+      "floor_price": 0,
+      "count": 178
+    },
+    "bone tee": {
+      "floor_price": 0,
+      "count": 230
+    },
+    "lumberjack shirt": {
+      "floor_price": 0,
+      "count": 213
+    },
+    "rainbow suspenders": {
+      "floor_price": 0,
+      "count": 135
+    },
+    "bayc t black": {
+      "floor_price": 0,
+      "count": 215
+    },
+    "guayabera": {
+      "floor_price": 0,
+      "count": 232
+    },
+    "navy striped tee": {
+      "floor_price": 0,
+      "count": 334
+    },
+    "sailor shirt": {
+      "floor_price": 0,
+      "count": 284
+    },
+    "prison jumpsuit": {
+      "floor_price": 0,
+      "count": 235
+    },
+    "cowboy shirt": {
+      "floor_price": 0,
+      "count": 119
+    },
+    "smoking jacket": {
+      "floor_price": 0,
+      "count": 221
+    },
+    "hip hop": {
+      "floor_price": 0,
+      "count": 128
+    },
+    "bayc t red": {
+      "floor_price": 0,
+      "count": 140
+    },
+    "bandolier": {
+      "floor_price": 0,
+      "count": 163
+    },
+    "sleeveless t": {
+      "floor_price": 0,
+      "count": 252
+    },
+    "tweed suit": {
+      "floor_price": 0,
+      "count": 141
+    },
+    "sleeveless logo t": {
+      "floor_price": 0,
+      "count": 144
+    },
+    "caveman pelt": {
+      "floor_price": 0,
+      "count": 163
+    },
+    "wool turtleneck": {
+      "floor_price": 0,
+      "count": 240
+    },
+    "blue dress": {
+      "floor_price": 0,
+      "count": 95
+    },
+    "tie dye": {
+      "floor_price": 0,
+      "count": 144
+    },
+    "kings robe": {
+      "floor_price": 0,
+      "count": 68
+    },
+    "tuxedo tee": {
+      "floor_price": 0,
+      "count": 235
+    },
+    "leather punk jacket": {
+      "floor_price": 0,
+      "count": 153
+    },
+    "toga": {
+      "floor_price": 0,
+      "count": 202
+    },
+    "lab coat": {
+      "floor_price": 0,
+      "count": 144
+    },
+    "tanktop": {
+      "floor_price": 0,
+      "count": 235
+    },
+    "pimp coat": {
+      "floor_price": 0,
+      "count": 80
+    },
+    "hawaiian": {
+      "floor_price": 0,
+      "count": 283
+    },
+    "space suit": {
+      "floor_price": 0,
+      "count": 105
+    },
+    "admirals coat": {
+      "floor_price": 0,
+      "count": 64
+    },
+    "black suit": {
+      "floor_price": 0,
+      "count": 42
+    }
   },
   "Mouth": {
-    "phoneme l": 61.99999,
-    "bored pipe": 67.69,
-    "bored": 63.94,
-    "dumbfounded": 64.988,
-    "tongue out": 64.2069,
-    "bored cigarette": 63,
-    "discomfort": 66.3158,
-    "phoneme  ooo": 71,
-    "jovial": 66.3158,
-    "small grin": 69.42,
-    "bored unshaven cigarette": 65.55,
-    "bored cigar": 3e-7,
-    "grin": 45,
-    "bored unshaven": 66.3158,
-    "bored unshaven pipe": 92,
-    "bored bubblegum": 75,
-    "rage": 66,
-    "bored unshaven cigar": 67.6767,
-    "bored unshaven bubblegum": 92,
-    "bored party horn": 73.68,
-    "phoneme vuh": 5.5e-7,
-    "phoneme wah": 79.69,
-    "phoneme oh": 70,
-    "grin gold grill": 73.69,
-    "grin multicolored": 90,
-    "grin diamond grill": 185,
-    "bored pizza": 350,
-    "bored unshaven dagger": 190,
-    "bored kazoo": 120,
-    "bored dagger": 99.5,
-    "bored unshaven kazoo": 64.67,
-    "bored unshaven party horn": 63.94,
-    "bored unshaven pizza": 1500
+    "phoneme l": {
+      "floor_price": 0,
+      "count": 241
+    },
+    "bored pipe": {
+      "floor_price": 0,
+      "count": 132
+    },
+    "bored": {
+      "floor_price": 0,
+      "count": 2272
+    },
+    "dumbfounded": {
+      "floor_price": 0,
+      "count": 505
+    },
+    "tongue out": {
+      "floor_price": 0,
+      "count": 202
+    },
+    "bored cigarette": {
+      "floor_price": 0,
+      "count": 710
+    },
+    "discomfort": {
+      "floor_price": 0,
+      "count": 208
+    },
+    "phoneme  ooo": {
+      "floor_price": 0,
+      "count": 255
+    },
+    "jovial": {
+      "floor_price": 0,
+      "count": 296
+    },
+    "small grin": {
+      "floor_price": 0,
+      "count": 272
+    },
+    "bored unshaven cigarette": {
+      "floor_price": 0,
+      "count": 438
+    },
+    "bored cigar": {
+      "floor_price": 0,
+      "count": 121
+    },
+    "grin": {
+      "floor_price": 0,
+      "count": 713
+    },
+    "bored unshaven": {
+      "floor_price": 0,
+      "count": 1551
+    },
+    "bored unshaven pipe": {
+      "floor_price": 0,
+      "count": 101
+    },
+    "bored bubblegum": {
+      "floor_price": 0,
+      "count": 119
+    },
+    "rage": {
+      "floor_price": 0,
+      "count": 266
+    },
+    "bored unshaven cigar": {
+      "floor_price": 0,
+      "count": 94
+    },
+    "bored unshaven bubblegum": {
+      "floor_price": 0,
+      "count": 65
+    },
+    "bored party horn": {
+      "floor_price": 0,
+      "count": 88
+    },
+    "phoneme vuh": {
+      "floor_price": 0,
+      "count": 333
+    },
+    "phoneme wah": {
+      "floor_price": 0,
+      "count": 163
+    },
+    "phoneme oh": {
+      "floor_price": 0,
+      "count": 237
+    },
+    "grin gold grill": {
+      "floor_price": 0,
+      "count": 91
+    },
+    "grin multicolored": {
+      "floor_price": 0,
+      "count": 116
+    },
+    "grin diamond grill": {
+      "floor_price": 0,
+      "count": 78
+    },
+    "bored pizza": {
+      "floor_price": 0,
+      "count": 50
+    },
+    "bored unshaven dagger": {
+      "floor_price": 0,
+      "count": 28
+    },
+    "bored kazoo": {
+      "floor_price": 0,
+      "count": 74
+    },
+    "bored dagger": {
+      "floor_price": 0,
+      "count": 49
+    },
+    "bored unshaven kazoo": {
+      "floor_price": 0,
+      "count": 61
+    },
+    "bored unshaven party horn": {
+      "floor_price": 0,
+      "count": 45
+    },
+    "bored unshaven pizza": {
+      "floor_price": 0,
+      "count": 26
+    }
   },
   "Earring": {
-    "silver hoop": 72.9,
-    "gold stud": 72,
-    "cross": 45,
-    "gold hoop": 69.69,
-    "silver stud": 63,
-    "diamond stud": 73.69
+    "silver hoop": {
+      "floor_price": 0,
+      "count": 882
+    },
+    "gold stud": {
+      "floor_price": 0,
+      "count": 439
+    },
+    "cross": {
+      "floor_price": 0,
+      "count": 149
+    },
+    "gold hoop": {
+      "floor_price": 0,
+      "count": 462
+    },
+    "silver stud": {
+      "floor_price": 0,
+      "count": 823
+    },
+    "diamond stud": {
+      "floor_price": 0,
+      "count": 222
+    }
   }
 }

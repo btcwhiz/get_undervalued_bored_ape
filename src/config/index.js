@@ -7,3 +7,8 @@ const punk = {
   contract_address: "",
   collection_slug: "",
 };
+
+module.exports = {
+  boredapeyc: boredapeyc,
+  punk: punk,
+};

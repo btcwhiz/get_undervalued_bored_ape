@@ -3,6 +3,7 @@ const boredapeycController = require("../controllers/boredapeyc.controller");
 
 const router = express.Router();
 
-router.get("/getTraitFloorPrices", boredapeycController.getMe);
+router.get("/getTraitFloorPrices", boredapeycController.getTraitFloorPrices);
+router.get("/getMe", boredapeycController.getMe);
 
 module.exports = router;

@@ -124,7 +124,6 @@ const getAllListedNFTS = async () => {
         "X-API-KEY": api_key,
       },
     };
-    0;
     let res = {};
     try {
       res = await axios(config);

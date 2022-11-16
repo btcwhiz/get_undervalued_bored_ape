@@ -1,4 +1,12 @@
+require("dotenv").config();
+
 const express = require("express");
+
+const { getListedNFTs, getListedNFTs1 } = require("./utils/boredapeyc");
+
+const cron = require("node-cron");
+
+cron.schedule("0 * * * * *", getListedNFTs1);
 
 const routes = require("./routes");
 
