@@ -1,0 +1,81 @@
+{
+  "0": {
+    "image": "ipfs://QmRRPWG96cmgTn2qSzjwr2qvfNEuhunv6FNeMFGa9bx6mQ",
+    "attributes": [
+      {
+        "trait_type": "Earring",
+        "value": "Silver Hoop"
+      },
+      {
+        "trait_type": "Background",
+        "value": "Orange"
+      },
+      {
+        "trait_type": "Fur",
+        "value": "Robot"
+      },
+      {
+        "trait_type": "Clothes",
+        "value": "Striped Tee"
+      },
+      {
+        "trait_type": "Mouth",
+        "value": "Discomfort"
+      },
+      {
+        "trait_type": "Eyes",
+        "value": "X Eyes"
+      }
+    ]
+  },
+  "1": {
+    "image": "ipfs://QmPbxeGcXhYQQNgsC6a36dDyYUcHgMLnGKnF8pVFmGsvqi",
+    "attributes": [
+      {
+        "trait_type": "Mouth",
+        "value": "Grin"
+      },
+      {
+        "trait_type": "Clothes",
+        "value": "Vietnam Jacket"
+      },
+      {
+        "trait_type": "Background",
+        "value": "Orange"
+      },
+      {
+        "trait_type": "Eyes",
+        "value": "Blue Beams"
+      },
+      {
+        "trait_type": "Fur",
+        "value": "Robot"
+      }
+    ]
+  },
+  "2": {
+    "image": "ipfs://QmcJYkCKK7QPmYWjp4FD2e3Lv5WCGFuHNUByvGKBaytif4",
+    "attributes": [
+      {
+        "trait_type": "Eyes",
+        "value": "3d"
+      },
+      {
+        "trait_type": "Mouth",
+        "value": "Bored Cigarette"
+      },
+      {
+        "trait_type": "Fur",
+        "value": "Robot"
+      },
+      {
+        "trait_type": "Hat",
+        "value": "Sea Captain's Hat"
+      },
+      {
+        "trait_type": "Background",
+        "value": "Aquamarine"
+      }
+    ]
+  }
+}
