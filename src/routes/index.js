@@ -1,11 +1,11 @@
 const express = require("express");
 
-const boredapeyc = require("./boredapeyc");
+const listednfts = require("./listednfts.route");
 
 module.exports = (app) => {
   const router = express.Router();
 
-  router.use("/boredapeyc", boredapeyc);
+  router.use("/listednfts", listednfts);
 
   router.get("/test", (req, res) => {
     res.status(200).send({
