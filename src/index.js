@@ -1,7 +1,7 @@
 require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
-const { getListedNFTs, getListedNFTs1 } = require("./utils/boredapeyc");
+const { getListedNFTs } = require("./utils/boredapeyc");
 
 const cron = require("node-cron");
 cron.schedule("0 0 * * * *", getListedNFTs);
