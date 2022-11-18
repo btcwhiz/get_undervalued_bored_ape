@@ -10,49 +10,15 @@ const getListedNFTs1 = async () => {
   return listedNFTS;
 };
 
-const updateFloorPrices = async () => {
-  console.log("first");
-  const listedNFTS = jsonfile.readFileSync(
-    __dirname + "/../data/boredapeyc/listedNFTs.json"
-  );
-  console.log("first", listedNFTS);
-
-  let floorPrices = jsonfile.readFileSync(
-    __dirname + "/../data/boredapeyc/traitfloorprice.json"
-  );
-  console.log("first", floorPrices);
-
-  const metadata = jsonfile.readFileSync(
-    __dirname + "/../data/boredapeyc/tokenmetadata.json"
-  );
-
-  for (let i = 0; i < listedNFTS.length; i++) {
-    let token_id = listedNFTS[i].token_id;
-    let price = listedNFTS[i].price;
-    let traits = metadata[token_id].attributes;
-    console.log("token info", token_id, price);
-    for (let j = 0; j < traits.length; j++) {
-      let trait_type = traits[j].trait_type;
-      let trait_value = traits[j].value.toLowerCase();
-      console.log("process", trait_type, trait_value);
-      if (
-        floorPrices[trait_type][trait_value].floor_price == 0 ||
-        floorPrices[trait_type][trait_value].floor_price > price
-      ) {
-        floorPrices[trait_type][trait_value].floor_price = price;
-      }
-    }
-  }
-  jsonfile.writeFile(
-    __dirname + "/../data/boredapeyc/traitfloorprice.json",
-    floorPrices,
-    { spaces: 2 },
-    (err) => {
-      if (err) {
-        console.log(err);
-      }
-    }
-  );
+const addLog = async (nftname) => {
+  let log = jsonfile.readFileSync(__dirname + `/../data/common/log.json`);
+  log.push({
+    type: nftname,
+    date: new Date().toDateString(),
+  });
+  jsonfile.writeFileSync(__dirname + `/../data/common/log.json`, log, {
+    spaces: 2,
+  });
 };
 
 const getListedNFTs = async () => {
@@ -120,10 +86,10 @@ const getListedNFTs = async () => {
       }
     }
   );
+  addLog("boredapeyc");
 };
 
 module.exports = {
-  updateFloorPrices,
   getListedNFTs,
   getListedNFTs1,
 };

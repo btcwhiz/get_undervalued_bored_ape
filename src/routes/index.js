@@ -1,12 +1,13 @@
 const express = require("express");
 
 const listednfts = require("./listednfts.route");
+const log = require("./log.route");
 
 module.exports = (app) => {
   const router = express.Router();
 
   router.use("/listednfts", listednfts);
-
+  router.use("/log", log);
   router.get("/test", (req, res) => {
     res.status(200).send({
       status: "success",
