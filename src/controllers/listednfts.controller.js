@@ -13,13 +13,9 @@ const getListedNFTs = (req, res) => {
     __dirname + "/../data/common/nfttype.json"
   );
 
-  console.log(nfttype_list);
   const nft_file = nfttype_list.filter((item) => {
-    console.log(item.type, nfttype);
     return item.type == nfttype;
   });
-
-  console.log(nft_file);
 
   if (nft_file.length == 0) {
     res.status(404).json({

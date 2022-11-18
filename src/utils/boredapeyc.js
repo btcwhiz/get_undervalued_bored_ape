@@ -111,7 +111,7 @@ const getListedNFTs = async () => {
     index++;
   }
   jsonfile.writeFile(
-    __dirname + "/../data/boredapeyc/listedNFTs.json",
+    __dirname + "/../data/listednfts/boredapeyc.json",
     listedNFTS,
     { spaces: 2 },
     (err) => {
