@@ -32,4 +32,3 @@ const cronJob = new CronJob("0 0 */1 * * *", async () => {
 if (!cronJob.running) {
   cronJob.start();
 }
-getListedNFTs();
