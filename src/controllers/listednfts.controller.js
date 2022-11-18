@@ -1,4 +1,7 @@
+const axios = require("axios");
 const jsonfile = require("jsonfile");
+const api_key = process.env.API_KEY;
+const { nftInfo } = require("../config");
 
 const getMe = async (req, res) => {
   await updateFloorPrices();
@@ -43,7 +46,50 @@ const getListedNFTs = (req, res) => {
   }
 };
 
+const getSaleHistory = async (req, res) => {
+  let nfttype = req.params.nfttype;
+  let token_id = req.params.token_id;
+  console.log(nfttype, token_id);
+  let events = [];
+  let next = "";
+  console.log(nftInfo[nfttype]);
+  const contract_address = nftInfo[nfttype].contract_address;
+  while (true) {
+    let config = {
+      method: "get",
+      url: `https://api.opensea.io/api/v1/events?asset_contract_address=${contract_address}&limit=50&token_id=${token_id}&event_type=successful&cursor=${next}`,
+      headers: {
+        "X-API-KEY": api_key,
+      },
+    };
+    let res = {};
+    try {
+      res = await axios(config);
+    } catch (e) {
+      console.log(e);
+      continue;
+    }
+    const asset_events = res.data.asset_events;
+    asset_events.forEach((event) => {
+      events.push({
+        date: new Date(event.created_date).toDateString(),
+        price: event.total_price / 10 ** 18,
+        token_type: event.payment_token.symbol,
+      });
+    });
+    if (res.data.next == null) {
+      break;
+    }
+    next = res.data.next;
+  }
+  res.status(200).json({
+    status: true,
+    msg: events,
+  });
+};
+
 module.exports = {
   getMe,
   getListedNFTs,
+  getSaleHistory,
 };

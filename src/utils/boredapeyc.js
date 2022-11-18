@@ -1,14 +1,7 @@
 const axios = require("axios");
 const jsonfile = require("jsonfile");
-const { boredapeyc } = require("../config");
 const api_key = process.env.API_KEY;
-
-const getListedNFTs1 = async () => {
-  const listedNFTS = jsonfile.readFile(
-    __dirname + "/../data/boredapeyc/listedNFTs.json"
-  );
-  return listedNFTS;
-};
+const { nftInfo } = require("../config");
 
 const addLog = async (nftname) => {
   let log = jsonfile.readFileSync(__dirname + `/../data/common/log.json`);
@@ -34,7 +27,7 @@ const getListedNFTs = async () => {
     do {
       let config = {
         method: "get",
-        url: `https://api.opensea.io/v2/orders/ethereum/seaport/listings?asset_contract_address=${boredapeyc.contract_address}&limit=50&${token_ids}&order_by=created_date&order_direction=desc&cursor=${next}`,
+        url: `https://api.opensea.io/v2/orders/ethereum/seaport/listings?asset_contract_address=${nftInfo.boredapeyc.contract_address}&limit=50&${token_ids}&order_by=created_date&order_direction=desc&cursor=${next}`,
         headers: {
           "X-API-KEY": api_key,
         },
@@ -91,5 +84,4 @@ const getListedNFTs = async () => {
 
 module.exports = {
   getListedNFTs,
-  getListedNFTs1,
 };
