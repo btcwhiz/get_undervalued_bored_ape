@@ -49,10 +49,8 @@ const getListedNFTs = (req, res) => {
 const getSaleHistory = async (req, res) => {
   let nfttype = req.params.nfttype;
   let token_id = req.params.token_id;
-  console.log(nfttype, token_id);
   let events = [];
   let next = "";
-  console.log(nftInfo[nfttype]);
   const contract_address = nftInfo[nfttype].contract_address;
   while (true) {
     let config = {
@@ -84,7 +82,35 @@ const getSaleHistory = async (req, res) => {
   }
   res.status(200).json({
     status: true,
-    msg: events,
+    data: events,
+  });
+};
+
+const getCollectionStats = async (req, res) => {
+  let nfttype = req.params.nfttype;
+  let collection_slug = nftInfo[nfttype].collection_slug;
+  let config = {
+    method: "get",
+    url: `https://api.opensea.io/api/v1/collection/${collection_slug}/stats`,
+    headers: {
+      "X-API-KEY": api_key,
+    },
+  };
+
+  let statsRes = {};
+  while (true) {
+    try {
+      statsRes = await axios(config);
+      break;
+    } catch (e) {
+      continue;
+    }
+  }
+  const stats = statsRes.data.stats;
+
+  res.status(200).json({
+    status: true,
+    data: stats,
   });
 };
 
@@ -92,4 +118,5 @@ module.exports = {
   getMe,
   getListedNFTs,
   getSaleHistory,
+  getCollectionStats,
 };

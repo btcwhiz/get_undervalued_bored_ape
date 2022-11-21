@@ -1,8 +1,11 @@
 require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
-const { getListedNFTs } = require("./utils/boredapeyc");
+const mongoose = require("mongoose");
 const { CronJob } = require("cron");
+
+const { getListedNFTs } = require("./utils/boredapeyc");
+const { dbInfo } = require("./config");
 
 const routes = require("./routes");
 const app = express();
@@ -21,9 +24,17 @@ app.get("/", (req, res) => {
 });
 
 routes(app);
-app.listen(port, () => {
-  console.log(`Server is started at:${port}`);
-});
+
+mongoose
+  .connect(dbInfo.url)
+  .then((result) => {
+    app.listen(port, () => {
+      console.log(`Server is started at:${port}`);
+    });
+  })
+  .catch((err) => {
+    console.log(err);
+  });
 
 const cronJob = new CronJob("0 0 */1 * * *", async () => {
   getListedNFTs();
