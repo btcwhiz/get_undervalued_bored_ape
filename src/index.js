@@ -13,14 +13,21 @@ const app = express();
 app.use(
   cors({
     origin: "*",
-    methods: ["GET"],
   })
 );
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 const port = process.env.PORT || 8080;
 
 app.get("/", (req, res) => {
   res.send("Sever is running!");
+});
+
+app.post("/posttest", (req, res) => {
+  console.log(req.body);
+  res.send(req.body);
 });
 
 routes(app);
@@ -36,10 +43,10 @@ mongoose
     console.log(err);
   });
 
-const cronJob = new CronJob("0 0 */1 * * *", async () => {
-  getListedNFTs();
-});
+// const cronJob = new CronJob("0 0 */1 * * *", async () => {
+//   getListedNFTs();
+// });
 
-if (!cronJob.running) {
-  cronJob.start();
-}
+// if (!cronJob.running) {
+//   cronJob.start();
+// }

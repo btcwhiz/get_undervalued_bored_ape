@@ -48,7 +48,7 @@ const getCollectionById = (req, res, next) => {
 
 const addCollection = (req, res, next) => {
   const new_collection = new Collection({
-    name: req.body.name,
+    name: req.body.collection_name,
     slug: req.body.slug,
     contract_address: req.body.contract_address,
   });
