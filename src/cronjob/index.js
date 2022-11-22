@@ -37,6 +37,7 @@ const getPaymentTokenPrice = async (symbol, period) => {
       await sleep(1500);
       continue;
     }
+    await sleep(250);
   }
   return history;
 };
@@ -128,6 +129,7 @@ const getListedTokens = async (api_key, contract_address, nfttype) => {
         listedNFTS.push(obj);
       }
       next = res.data.next;
+      await sleep(250);
     } while (next != null);
     cur += 20;
   }
@@ -186,6 +188,7 @@ const getListedTokens = async (api_key, contract_address, nfttype) => {
         break;
       }
       next = res.data.next;
+      await sleep(250);
     }
     listedTokens[i].salesHistory = listedTokens[i].salesHistory.filter(
       (history) => {
@@ -258,6 +261,7 @@ const getListedTokens = async (api_key, contract_address, nfttype) => {
     });
     console.log(orderList.length);
     cursor = orderList[orderList.length - 1].hash;
+    await sleep(250);
   }
 
   listedNFTS.sort((p1, p2) =>
@@ -347,6 +351,7 @@ const getListedTokens = async (api_key, contract_address, nfttype) => {
     });
     cursor = events[events.length - 1].id;
     console.log(events.length, cursor);
+    await sleep(250);
   }
 
   sale_events.sort((p1, p2) =>
@@ -395,6 +400,34 @@ const getListedTokens = async (api_key, contract_address, nfttype) => {
       }
     }
   );
+};
+
+const getStatsInfo = async (
+  nfttype,
+  api_key,
+  collection_slug,
+  contract_address
+) => {
+  let stats = jsonfile.readFileSync(
+    __dirname + `/../data/stats/${nfttype}.json`
+  );
+  while (true) {
+    try {
+      const res = await axios({
+        method: "GET",
+        url: `https://api.opensea.io/api/v1/collection/${collection_slug}/stats`,
+        headers: {
+          "X-API-KEY": api_key,
+        },
+      });
+      stats.opensea = res.data.stats;
+      break;
+    } catch (e) {
+      console.log(e);
+      sleep(2000);
+      continue;
+    }
+  }
 };
 
 const cronJobFunc = async () => {
