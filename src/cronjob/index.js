@@ -91,7 +91,7 @@ const getListedTokens = async (api_key, contract_address, nfttype) => {
   /// OpenSea
   let listedNFTS = [];
   let cur = 0;
-  while (cur < 100) {
+  while (cur < 10000) {
     let token_ids = "";
     for (let i = cur; i < cur + 20; i++) {
       token_ids += `token_ids=${i}&`;
@@ -148,7 +148,7 @@ const getListedTokens = async (api_key, contract_address, nfttype) => {
   }
 
   cur = 0;
-  for (let i = 0; i < 100; i++) {
+  for (let i = 0; i < 10000; i++) {
     let next = "";
     let events = [];
     console.log(i);
