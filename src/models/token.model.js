@@ -11,13 +11,6 @@ const tokenSchema = new Schema({
     type: String,
     required: true,
   },
-  traits: [
-    {
-      type: String,
-      value: String,
-      count: Number,
-    },
-  ],
   order: [
     {
       price: {

@@ -4,7 +4,7 @@ const cors = require("cors");
 const mongoose = require("mongoose");
 const { CronJob } = require("cron");
 
-const { getListedNFTs } = require("./utils/boredapeyc");
+const { cronJobFunc } = require("./cronjob");
 const { dbInfo } = require("./config");
 
 const routes = require("./routes");
@@ -43,10 +43,12 @@ mongoose
     console.log(err);
   });
 
-// const cronJob = new CronJob("0 0 */1 * * *", async () => {
-//   getListedNFTs();
-// });
+cronJobFunc();
 
-// if (!cronJob.running) {
-//   cronJob.start();
-// }
+const cronJob = new CronJob("0 0 */2 * * *", async () => {
+  cronJobFunc();
+});
+
+if (!cronJob.running) {
+  cronJob.start();
+}

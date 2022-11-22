@@ -5,7 +5,29 @@
       "opensea": {},
       "looksrare": {}
     },
-    "salesHistory": []
+    "salesHistory": [
+      {
+        "date": "2022-10-27T22:01:29.431911",
+        "marketplace": "opensea",
+        "price": 25,
+        "token_type": "ETH",
+        "token_price": 1519.696864509192
+      },
+      {
+        "date": "2022-10-27T22:19:17.803169",
+        "marketplace": "opensea",
+        "price": 0,
+        "token_type": "ETH",
+        "token_price": 1522.2084778085505
+      },
+      {
+        "date": "2022-10-27T22:11:11.918502",
+        "marketplace": "opensea",
+        "price": 0.98,
+        "token_type": "ETH",
+        "token_price": 1522.2084778085505
+      }
+    ]
   },
   {
     "token_id": 1,
@@ -13,7 +35,29 @@
       "opensea": {},
       "looksrare": {}
     },
-    "salesHistory": []
+    "salesHistory": [
+      {
+        "date": "2020-11-30T18:45:11.476313",
+        "marketplace": "opensea",
+        "price": 60,
+        "token_type": "ETH",
+        "token_price": 574.7511196548439
+      },
+      {
+        "date": "2019-04-06T05:22:05.344727",
+        "marketplace": "opensea",
+        "price": 31,
+        "token_type": "ETH",
+        "token_price": 165.1385234713877
+      },
+      {
+        "date": "2022-10-27T22:09:51.240307",
+        "marketplace": "opensea",
+        "price": 0.42,
+        "token_type": "ETH",
+        "token_price": 1522.2084778085505
+      }
+    ]
   },
   {
     "token_id": 2,
@@ -117,7 +161,29 @@
       "opensea": {},
       "looksrare": {}
     },
-    "salesHistory": []
+    "salesHistory": [
+      {
+        "date": "2018-12-07T19:48:47.201854",
+        "marketplace": "opensea",
+        "price": 2.5,
+        "token_type": "ETH",
+        "token_price": 92.96795017189604
+      },
+      {
+        "date": "2018-01-23T04:51:38.879873",
+        "marketplace": "opensea",
+        "price": 1.85,
+        "token_type": "ETH",
+        "token_price": 991.665320638703
+      },
+      {
+        "date": "2018-01-23T04:51:38.879873",
+        "marketplace": "opensea",
+        "price": 0.9,
+        "token_type": "ETH",
+        "token_price": 991.665320638703
+      }
+    ]
   },
   {
     "token_id": 15,
@@ -269,7 +335,15 @@
       "opensea": {},
       "looksrare": {}
     },
-    "salesHistory": []
+    "salesHistory": [
+      {
+        "date": "2022-10-27T22:10:55.925910",
+        "marketplace": "opensea",
+        "price": 0.51,
+        "token_type": "ETH",
+        "token_price": 1522.2084778085505
+      }
+    ]
   },
   {
     "token_id": 34,
@@ -429,7 +503,29 @@
       "opensea": {},
       "looksrare": {}
     },
-    "salesHistory": []
+    "salesHistory": [
+      {
+        "date": "2021-08-23T16:25:46.232387",
+        "marketplace": "opensea",
+        "price": 129.99,
+        "token_type": "ETH",
+        "token_price": 3243.4863583537394
+      },
+      {
+        "date": "2021-02-19T17:37:29.753909",
+        "marketplace": "opensea",
+        "price": 22,
+        "token_type": "ETH",
+        "token_price": 1938.5694368074617
+      },
+      {
+        "date": "2021-02-01T20:16:42.425829",
+        "marketplace": "opensea",
+        "price": 20,
+        "token_type": "ETH",
+        "token_price": 1368.6644548123775
+      }
+    ]
   },
   {
     "token_id": 54,
@@ -717,7 +813,29 @@
       "opensea": {},
       "looksrare": {}
     },
-    "salesHistory": []
+    "salesHistory": [
+      {
+        "date": "2020-09-06T15:32:31.994561",
+        "marketplace": "opensea",
+        "price": 19.99,
+        "token_type": "ETH",
+        "token_price": 334.46859301354317
+      },
+      {
+        "date": "2020-05-28T03:00:15.128717",
+        "marketplace": "opensea",
+        "price": 20,
+        "token_type": "ETH",
+        "token_price": 207.84589389085414
+      },
+      {
+        "date": "2022-10-27T21:58:03.327959",
+        "marketplace": "opensea",
+        "price": 1.5,
+        "token_type": "ETH",
+        "token_price": 1519.696864509192
+      }
+    ]
   },
   {
     "token_id": 90,

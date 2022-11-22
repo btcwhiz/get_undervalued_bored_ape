@@ -1,14 +1,54 @@
 [
   {
     "type": "boredapeyc",
-    "date": "2022-11-18"
+    "timestamp": 1669096727059
+  },
+  {
+    "type": "cryptopunks",
+    "timestamp": 1669096903044
   },
   {
     "type": "boredapeyc",
-    "date": "Fri Nov 18 2022"
+    "timestamp": 1669097189150
   },
   {
     "type": "boredapeyc",
-    "date": "Fri Nov 18 2022"
+    "timestamp": 1669097312185
+  },
+  {
+    "type": "cryptopunks",
+    "timestamp": 1669097464525
+  },
+  {
+    "type": "cryptopunks",
+    "timestamp": 1669097598849
+  },
+  {
+    "type": "cryptopunks",
+    "timestamp": 1669098002234
+  },
+  {
+    "type": "cryptopunks",
+    "timestamp": 1669098202680
+  },
+  {
+    "type": "cryptopunks",
+    "timestamp": 1669098266386
+  },
+  {
+    "type": "cryptopunks",
+    "timestamp": 1669098346478
+  },
+  {
+    "type": "cryptopunks",
+    "timestamp": 1669098864803
+  },
+  {
+    "type": "cryptopunks",
+    "timestamp": 1669099136978
+  },
+  {
+    "type": "cryptopunks",
+    "timestamp": 1669099371170
   }
 ]
