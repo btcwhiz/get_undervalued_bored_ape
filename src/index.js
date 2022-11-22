@@ -43,7 +43,7 @@ mongoose
     console.log(err);
   });
 
-cronJobFunc();
+// cronJobFunc();
 
 const cronJob = new CronJob("0 0 */2 * * *", async () => {
   cronJobFunc();

@@ -28,7 +28,7 @@ const getListedNFTs = (req, res) => {
   } else {
     const filename = nft_file[0].filename;
     jsonfile.readFile(
-      __dirname + `/../data/listednfts/${filename}`,
+      __dirname + `/../data/tokens/${filename}`,
       (error, data) => {
         if (error) {
           console.log(error);
