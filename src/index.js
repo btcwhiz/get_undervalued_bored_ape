@@ -1,7 +1,7 @@
 require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
-const mongoose = require("mongoose");
+// const mongoose = require("mongoose");
 const { CronJob } = require("cron");
 
 const { cronJobFunc } = require("./cronjob");
@@ -32,16 +32,17 @@ app.post("/posttest", (req, res) => {
 
 routes(app);
 
-mongoose
-  .connect(dbInfo.url)
-  .then((result) => {
-    app.listen(port, () => {
-      console.log(`Server is started at:${port}`);
-    });
-  })
-  .catch((err) => {
-    console.log(err);
-  });
+app.listen(port, () => {
+  console.log(`Server is started at:${port}`);
+});
+
+// mongoose
+//   .connect(dbInfo.url)
+//   .then((result) => {
+//   })
+//   .catch((err) => {
+//     console.log(err);
+//   });
 
 // cronJobFunc();
 
