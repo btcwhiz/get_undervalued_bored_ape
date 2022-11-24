@@ -150,81 +150,100 @@ const getListedTokens = async (api_key, contract_address, nfttype) => {
   }
 
   cur = 0;
+  await sleep(500);
   for (let i = 0; i < 10000; i++) {
-    let next = "";
-    let events = [];
-    console.log(i);
-    while (true) {
-      let config = {
-        method: "get",
-        url: `https://api.opensea.io/api/v1/events?asset_contract_address=${contract_address}&limit=50&token_id=${i.toString()}&event_type=successful&cursor=${next}`,
-        headers: {
-          "X-API-KEY": api_key,
-        },
-      };
-      let res = {};
-      try {
-        res = await axios(config);
-      } catch (e) {
-        console.log(e);
-        await sleep(1500);
-        continue;
-      }
-      const asset_events = res.data.asset_events;
-      asset_events.forEach((event) => {
-        let token_price = getTokenPrice(
-          paymentTokenPriceHistory[event.payment_token.symbol],
-          new Date(event.created_date).getTime()
-        );
-        events.push({
-          date: event.created_date,
-          marketplace: "opensea",
-          price: event.total_price / 10 ** 18,
-          token_type: event.payment_token.symbol,
-          token_price: token_price,
-        });
-      });
-      if (res.data.next == null) {
-        break;
-      }
-      next = res.data.next;
-      await sleep(250);
-    }
-    listedTokens[i].salesHistory = listedTokens[i].salesHistory.filter(
-      (history) => {
-        return history.marketplace != "opensea";
-      }
-    );
-
-    events.forEach((event) => {
-      listedTokens[i].salesHistory.push(event);
-    });
-
+    let event_update_flag = false;
     if (cur >= listedNFTS.length) {
-      listedTokens[i].price.opensea = {};
-      continue;
-    }
-    if (i.toString() == listedNFTS[cur].token_id) {
-      if (
-        listedTokens[i].price.opensea == {} ||
-        listedTokens[i].price.looksrare.created_date !=
-          listedNFTS[cur].created_date
-      ) {
-        const paymentTokenPrice = getTokenPrice(
-          paymentTokenPriceHistory[listedNFTS[cur].payment_token],
-          new Date(listedNFTS[cur].created_date).getTime()
-        );
-        console.log(i, paymentTokenPrice);
-        listedTokens[i].price.opensea = {
-          price: listedNFTS[cur].price,
-          created_date: listedNFTS[cur].created_date,
-          payment_token: listedNFTS[cur].payment_token,
-          payment_token_price: paymentTokenPrice,
-        };
+      if (listedTokens[i].price.opensea != {}) {
+        event_update_flag = true;
       }
-      cur++;
-    } else {
-      listedTokens[i].price.opensea = {};
+    }
+
+    if (cur < listedNFTS.length) {
+      if (
+        listedTokens[i].price.opensea != {} &&
+        i < Number(listedNFTS[cur].token_id)
+      ) {
+        event_update_flag = true;
+      }
+      if (i.toString() == listedNFTS[cur].token_id) {
+        if (
+          listedTokens[i].price.opensea == {} ||
+          listedTokens[i].price.looksrare.created_date !=
+            listedNFTS[cur].created_date
+        ) {
+          console.log(
+            listedTokens[i].price.opensea,
+            listedTokens[i].price.looksrare.created_date,
+            listedNFTS[cur].created_date
+          );
+          event_update_flag = true;
+          const paymentTokenPrice = getTokenPrice(
+            paymentTokenPriceHistory[listedNFTS[cur].payment_token],
+            new Date(listedNFTS[cur].created_date).getTime()
+          );
+          console.log(i, paymentTokenPrice);
+          listedTokens[i].price.opensea = {
+            price: listedNFTS[cur].price,
+            created_date: listedNFTS[cur].created_date,
+            payment_token: listedNFTS[cur].payment_token,
+            payment_token_price: paymentTokenPrice,
+          };
+        }
+        cur++;
+      } else {
+        listedTokens[i].price.opensea = {};
+      }
+    }
+    if (event_update_flag) {
+      let next = "";
+      let events = [];
+      console.log(i);
+      while (true) {
+        let config = {
+          method: "get",
+          url: `https://api.opensea.io/api/v1/events?asset_contract_address=${contract_address}&limit=50&token_id=${i.toString()}&event_type=successful&cursor=${next}`,
+          headers: {
+            "X-API-KEY": api_key,
+          },
+        };
+        let res = {};
+        try {
+          res = await axios(config);
+        } catch (e) {
+          console.log(e);
+          await sleep(1500);
+          continue;
+        }
+        const asset_events = res.data.asset_events;
+        asset_events.forEach((event) => {
+          let token_price = getTokenPrice(
+            paymentTokenPriceHistory[event.payment_token.symbol],
+            new Date(event.created_date).getTime()
+          );
+          events.push({
+            date: event.created_date,
+            marketplace: "opensea",
+            price: event.total_price / 10 ** 18,
+            token_type: event.payment_token.symbol,
+            token_price: token_price,
+          });
+        });
+        if (res.data.next == null) {
+          break;
+        }
+        next = res.data.next;
+        await sleep(500);
+      }
+      listedTokens[i].salesHistory = listedTokens[i].salesHistory.filter(
+        (history) => {
+          return history.marketplace != "opensea";
+        }
+      );
+
+      events.forEach((event) => {
+        listedTokens[i].salesHistory.push(event);
+      });
     }
   }
 
@@ -261,7 +280,6 @@ const getListedTokens = async (api_key, contract_address, nfttype) => {
     });
     console.log(orderList.length);
     cursor = orderList[orderList.length - 1].hash;
-    await sleep(250);
   }
 
   listedNFTS.sort((p1, p2) =>
@@ -351,7 +369,6 @@ const getListedTokens = async (api_key, contract_address, nfttype) => {
     });
     cursor = events[events.length - 1].id;
     console.log(events.length, cursor);
-    await sleep(250);
   }
 
   sale_events.sort((p1, p2) =>
@@ -428,6 +445,32 @@ const getStatsInfo = async (
       continue;
     }
   }
+  sleep(1000);
+
+  while (true) {
+    try {
+      const res = await axios({
+        method: "GET",
+        url: `https://api.looksrare.org/api/v1/collections/stats?address=${contract_address}`,
+      });
+      stats.looksrare = res.data.data;
+      break;
+    } catch (e) {
+      console.log(e);
+      sleep(2000);
+      continue;
+    }
+  }
+  jsonfile.writeFile(
+    __dirname + `/../data/stats/${nfttype}.json`,
+    stats,
+    { spaces: 2 },
+    (err) => {
+      if (err) {
+        console.log(err);
+      }
+    }
+  );
 };
 
 const cronJobFunc = async () => {
@@ -442,6 +485,18 @@ const cronJobFunc = async () => {
     opensea_api_key,
     nftInfo["cryptopunks"].contract_address,
     nftInfo["cryptopunks"].type
+  );
+  await getStatsInfo(
+    "boredapeyc",
+    opensea_api_key,
+    nftInfo["boredapeyc"].collection_slug,
+    nftInfo["boredapeyc"].contract_address
+  );
+  await getStatsInfo(
+    "cryptopunks",
+    opensea_api_key,
+    nftInfo["cryptopunks"].collection_slug,
+    nftInfo["cryptopunks"].contract_address
   );
 };
 

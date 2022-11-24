@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const tokenSchema = new Schema({
-  collection_id: {
+  collection_name: {
     type: String,
     required: true,
   },
@@ -17,7 +17,7 @@ const tokenSchema = new Schema({
         type: Number,
       },
       created_date: {
-        type: Number,
+        type: Date,
       },
       marketplace: {
         type: String,
@@ -36,7 +36,7 @@ const tokenSchema = new Schema({
         type: Number,
       },
       created_date: {
-        type: Number,
+        type: Date,
       },
       marketplace: {
         type: String,

@@ -32,6 +32,10 @@ const paymentToken = [
     symbol: "APE",
     id: 24383,
   },
+  {
+    symbol: "DAI",
+    id: 9956,
+  },
 ];
 
 const paymentTokenPricePeriod = [

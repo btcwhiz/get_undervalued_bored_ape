@@ -82,7 +82,7 @@ const getListedTokens = async (api_key, contract_address, nfttype) => {
   /// OpenSea
   let listedNFTS = [];
   let cur = 0;
-  while (cur < 200) {
+  while (cur < 100) {
     let token_ids = "";
     for (let i = cur; i < cur + 20; i++) {
       token_ids += `token_ids=${i}&`;
@@ -140,53 +140,53 @@ const getListedTokens = async (api_key, contract_address, nfttype) => {
   }
 
   cur = 0;
-  for (let i = 0; i < 200; i++) {
-    let next = "";
-    let events = [];
-    while (true) {
-      let config = {
-        method: "get",
-        url: `https://api.opensea.io/api/v1/events?asset_contract_address=${contract_address}&limit=50&token_id=${i.toString()}&event_type=successful&cursor=${next}`,
-        headers: {
-          "X-API-KEY": api_key,
-        },
-      };
-      let res = {};
-      try {
-        res = await axios(config);
-      } catch (e) {
-        console.log(e);
-        await sleep(2000);
-        continue;
-      }
-      const asset_events = res.data.asset_events;
-      asset_events.forEach((event) => {
-        let token_price = getTokenPrice(
-          paymentTokenPriceHistory[event.payment_token.symbol],
-          new Date(event.created_date).getTime()
-        );
-        events.push({
-          date: event.created_date,
-          marketplace: "opensea",
-          price: event.total_price / 10 ** 18,
-          token_type: event.payment_token.symbol,
-          token_price: token_price,
-        });
-      });
-      if (res.data.next == null) {
-        break;
-      }
-      next = res.data.next;
-      await sleep(500);
-    }
-    listedTokens[i].salesHistory = listedTokens[i].salesHistory.filter(
-      (history) => {
-        return history.marketplace != "opensea";
-      }
-    );
-    events.forEach((event) => {
-      listedTokens[i].salesHistory.push(event);
-    });
+  for (let i = 0; i < 100; i++) {
+    // let next = "";
+    // let events = [];
+    // while (true) {
+    //   let config = {
+    //     method: "get",
+    //     url: `https://api.opensea.io/api/v1/events?asset_contract_address=${contract_address}&limit=50&token_id=${i.toString()}&event_type=successful&cursor=${next}`,
+    //     headers: {
+    //       "X-API-KEY": api_key,
+    //     },
+    //   };
+    //   let res = {};
+    //   try {
+    //     res = await axios(config);
+    //   } catch (e) {
+    //     console.log(e);
+    //     await sleep(2000);
+    //     continue;
+    //   }
+    //   const asset_events = res.data.asset_events;
+    //   asset_events.forEach((event) => {
+    //     let token_price = getTokenPrice(
+    //       paymentTokenPriceHistory[event.payment_token.symbol],
+    //       new Date(event.created_date).getTime()
+    //     );
+    //     events.push({
+    //       date: event.created_date,
+    //       marketplace: "opensea",
+    //       price: event.total_price / 10 ** 18,
+    //       token_type: event.payment_token.symbol,
+    //       token_price: token_price,
+    //     });
+    //   });
+    //   if (res.data.next == null) {
+    //     break;
+    //   }
+    //   next = res.data.next;
+    //   await sleep(500);
+    // }
+    // listedTokens[i].salesHistory = listedTokens[i].salesHistory.filter(
+    //   (history) => {
+    //     return history.marketplace != "opensea";
+    //   }
+    // );
+    // events.forEach((event) => {
+    //   listedTokens[i].salesHistory.push(event);
+    // });
 
     if (cur >= listedNFTS.length) {
       listedTokens[i].price.opensea = {};
@@ -216,177 +216,177 @@ const getListedTokens = async (api_key, contract_address, nfttype) => {
     }
   }
 
-  /// LooksRare
-  listedNFTS = [];
-  cursor = "";
-  while (true) {
-    let orderList = [];
-    while (true) {
-      try {
-        const res = await axios({
-          method: "GET",
-          url: `https://api.looksrare.org/api/v1/orders?isOrderAsk=true&collection=${contract_address}&status[]=VALID&pagination[first]=150&pagination[cursor]=${cursor}`,
-        });
-        orderList = res.data.data;
-        break;
-      } catch (e) {
-        console.log(e);
-        await sleep(2000);
-        continue;
-      }
-    }
-    if (orderList.length == 0) {
-      break;
-    }
-    orderList.forEach((order) => {
-      listedNFTS.push({
-        token_id: order.tokenId,
-        price: order.price / 10 ** 18,
-        created_date: new Date(order.startTime * 1000),
-        payment_token: "WETH",
-      });
-    });
-    cursor = orderList[orderList.length - 1].hash;
-    await sleep(250);
-  }
+  // /// LooksRare
+  // listedNFTS = [];
+  // cursor = "";
+  // while (true) {
+  //   let orderList = [];
+  //   while (true) {
+  //     try {
+  //       const res = await axios({
+  //         method: "GET",
+  //         url: `https://api.looksrare.org/api/v1/orders?isOrderAsk=true&collection=${contract_address}&status[]=VALID&pagination[first]=150&pagination[cursor]=${cursor}`,
+  //       });
+  //       orderList = res.data.data;
+  //       break;
+  //     } catch (e) {
+  //       console.log(e);
+  //       await sleep(2000);
+  //       continue;
+  //     }
+  //   }
+  //   if (orderList.length == 0) {
+  //     break;
+  //   }
+  //   orderList.forEach((order) => {
+  //     listedNFTS.push({
+  //       token_id: order.tokenId,
+  //       price: order.price / 10 ** 18,
+  //       created_date: new Date(order.startTime * 1000),
+  //       payment_token: "WETH",
+  //     });
+  //   });
+  //   cursor = orderList[orderList.length - 1].hash;
+  //   await sleep(250);
+  // }
 
-  listedNFTS.sort((p1, p2) =>
-    p1.created_date < p2.created_date
-      ? 1
-      : p1.created_date > p2.created_date
-      ? -1
-      : 0
-  );
+  // listedNFTS.sort((p1, p2) =>
+  //   p1.created_date < p2.created_date
+  //     ? 1
+  //     : p1.created_date > p2.created_date
+  //     ? -1
+  //     : 0
+  // );
 
-  listedNFTS.sort((p1, p2) =>
-    Number(p1.token_id) > Number(p2.token_id)
-      ? 1
-      : Number(p1.token_id) < Number(p2.token_id)
-      ? -1
-      : 0
-  );
+  // listedNFTS.sort((p1, p2) =>
+  //   Number(p1.token_id) > Number(p2.token_id)
+  //     ? 1
+  //     : Number(p1.token_id) < Number(p2.token_id)
+  //     ? -1
+  //     : 0
+  // );
 
-  index = 1;
-  while (index < listedNFTS.length) {
-    if (listedNFTS[index].token_id == listedNFTS[index - 1].token_id) {
-      listedNFTS.splice(index, 1);
-      continue;
-    }
-    index++;
-  }
+  // index = 1;
+  // while (index < listedNFTS.length) {
+  //   if (listedNFTS[index].token_id == listedNFTS[index - 1].token_id) {
+  //     listedNFTS.splice(index, 1);
+  //     continue;
+  //   }
+  //   index++;
+  // }
 
-  cur = 0;
-  for (let i = 0; i < 10000; i++) {
-    if (cur >= listedNFTS.length) {
-      listedTokens[i].price.looksrare = {};
-      continue;
-    }
-    if (i.toString() == listedNFTS[cur].token_id) {
-      console.log(listedTokens[i].price.looksrare.created_date);
-      if (
-        listedTokens[i].price.looksrare == {} ||
-        listedTokens[i].price.looksrare.created_date !=
-          listedNFTS[cur].created_date
-      ) {
-        console.log(i);
-        const paymentTokenPrice = getTokenPrice(
-          paymentTokenPriceHistory[listedNFTS[cur].payment_token],
-          new Date(listedNFTS[cur].created_date).getTime()
-        );
+  // cur = 0;
+  // for (let i = 0; i < 10000; i++) {
+  //   if (cur >= listedNFTS.length) {
+  //     listedTokens[i].price.looksrare = {};
+  //     continue;
+  //   }
+  //   if (i.toString() == listedNFTS[cur].token_id) {
+  //     console.log(listedTokens[i].price.looksrare.created_date);
+  //     if (
+  //       listedTokens[i].price.looksrare == {} ||
+  //       listedTokens[i].price.looksrare.created_date !=
+  //         listedNFTS[cur].created_date
+  //     ) {
+  //       console.log(i);
+  //       const paymentTokenPrice = getTokenPrice(
+  //         paymentTokenPriceHistory[listedNFTS[cur].payment_token],
+  //         new Date(listedNFTS[cur].created_date).getTime()
+  //       );
 
-        listedTokens[i].price.looksrare = {
-          price: listedNFTS[cur].price,
-          created_date: listedNFTS[cur].created_date,
-          payment_token: listedNFTS[cur].payment_token,
-          payment_token_price: paymentTokenPrice,
-        };
-      }
-      cur++;
-    } else {
-      listedTokens[i].price.looksrare = {};
-    }
-  }
+  //       listedTokens[i].price.looksrare = {
+  //         price: listedNFTS[cur].price,
+  //         created_date: listedNFTS[cur].created_date,
+  //         payment_token: listedNFTS[cur].payment_token,
+  //         payment_token_price: paymentTokenPrice,
+  //       };
+  //     }
+  //     cur++;
+  //   } else {
+  //     listedTokens[i].price.looksrare = {};
+  //   }
+  // }
 
-  let sale_events = [];
-  cursor = "";
-  while (true) {
-    let events = [];
-    while (true) {
-      try {
-        const res = await axios({
-          method: "GET",
-          url: `https://api.looksrare.org/api/v1/events?collection=${contract_address}&type=SALE&pagination[first]=150&pagination[cursor]=${cursor}`,
-        });
-        events = res.data.data;
-        break;
-      } catch (error) {
-        console.log(error);
-        await sleep(500);
-        continue;
-      }
-    }
-    if (events.length == 0) {
-      break;
-    }
-    events.forEach((event) => {
-      sale_events.push({
-        token_id: event.token.tokenId,
-        price: event.order.price / 10 ** 18,
-        date: new Date(event.createdAt),
-        payment_token: "WETH",
-      });
-    });
-    cursor = events[events.length - 1].id;
-    console.log(events.length, cursor);
-    await sleep(250);
-  }
+  // let sale_events = [];
+  // cursor = "";
+  // while (true) {
+  //   let events = [];
+  //   while (true) {
+  //     try {
+  //       const res = await axios({
+  //         method: "GET",
+  //         url: `https://api.looksrare.org/api/v1/events?collection=${contract_address}&type=SALE&pagination[first]=150&pagination[cursor]=${cursor}`,
+  //       });
+  //       events = res.data.data;
+  //       break;
+  //     } catch (error) {
+  //       console.log(error);
+  //       await sleep(500);
+  //       continue;
+  //     }
+  //   }
+  //   if (events.length == 0) {
+  //     break;
+  //   }
+  //   events.forEach((event) => {
+  //     sale_events.push({
+  //       token_id: event.token.tokenId,
+  //       price: event.order.price / 10 ** 18,
+  //       date: new Date(event.createdAt),
+  //       payment_token: "WETH",
+  //     });
+  //   });
+  //   cursor = events[events.length - 1].id;
+  //   console.log(events.length, cursor);
+  //   await sleep(250);
+  // }
 
-  sale_events.sort((p1, p2) =>
-    p1.date < p2.date ? 1 : p1.date > p2.date ? -1 : 0
-  );
+  // sale_events.sort((p1, p2) =>
+  //   p1.date < p2.date ? 1 : p1.date > p2.date ? -1 : 0
+  // );
 
-  sale_events.sort((p1, p2) =>
-    Number(p1.token_id) > Number(p2.token_id)
-      ? 1
-      : Number(p1.token_id) < Number(p2.token_id)
-      ? -1
-      : 0
-  );
+  // sale_events.sort((p1, p2) =>
+  //   Number(p1.token_id) > Number(p2.token_id)
+  //     ? 1
+  //     : Number(p1.token_id) < Number(p2.token_id)
+  //     ? -1
+  //     : 0
+  // );
 
-  jsonfile.writeFile(
-    __dirname + `/test2.json`,
-    sale_events,
-    { spaces: 2 },
-    (err) => {
-      if (err) {
-        console.log(err);
-      }
-    }
-  );
+  // jsonfile.writeFile(
+  //   __dirname + `/test2.json`,
+  //   sale_events,
+  //   { spaces: 2 },
+  //   (err) => {
+  //     if (err) {
+  //       console.log(err);
+  //     }
+  //   }
+  // );
 
-  cur = 0;
-  for (let i = 0; i < 10000; i++) {
-    listedTokens[i].salesHistory = listedTokens[i].salesHistory.filter(
-      (event) => {
-        return event.marketplace == "opensea";
-      }
-    );
-    while (sale_events[cur] && i.toString() == sale_events[cur].token_id) {
-      console.log(sale_events[cur].token_id);
-      const token_price = getTokenPrice(
-        paymentTokenPriceHistory["WETH"],
-        new Date(sale_events[cur].date).getTime()
-      );
-      listedTokens[i].salesHistory.push({
-        price: sale_events[cur].price,
-        marketplace: "looksrare",
-        date: sale_events[cur].date,
-        token_type: "WETH",
-        token_price: token_price,
-      });
-      cur++;
-    }
-  }
+  // cur = 0;
+  // for (let i = 0; i < 10000; i++) {
+  //   listedTokens[i].salesHistory = listedTokens[i].salesHistory.filter(
+  //     (event) => {
+  //       return event.marketplace == "opensea";
+  //     }
+  //   );
+  //   while (sale_events[cur] && i.toString() == sale_events[cur].token_id) {
+  //     console.log(sale_events[cur].token_id);
+  //     const token_price = getTokenPrice(
+  //       paymentTokenPriceHistory["WETH"],
+  //       new Date(sale_events[cur].date).getTime()
+  //     );
+  //     listedTokens[i].salesHistory.push({
+  //       price: sale_events[cur].price,
+  //       marketplace: "looksrare",
+  //       date: sale_events[cur].date,
+  //       token_type: "WETH",
+  //       token_price: token_price,
+  //     });
+  //     cur++;
+  //   }
+  // }
 
   jsonfile.writeFile(
     __dirname + `/test.json`,
